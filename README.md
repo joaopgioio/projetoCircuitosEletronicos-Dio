@@ -45,61 +45,59 @@ Este projeto simula uma estufa de hortaliças controlada por um Arduino. O siste
 ## Código Fonte
 
 ```cpp
-// Definição dos pinos
-const int sensorPin = A0; // Pin do sensor de temperatura TMP36
-const int motorPin = 6;   // Pin do motor de ventilador
-const int ledPin = 7;     // Pin do LED vermelho
-const int buzzerPin = 8;  // Pin do buzzer
+const int sensorPin = A0; // Pin do sensor de temperatura
+const int motorPin = 6;   // Pin do motor
+const int ledPin = 7;     // Pin do LED
+const int buzinaPin = 8;  // Pin do buzzer
 
 void setup() {
-  Serial.begin(9600);      // Inicializa a comunicação serial a 9600 bps
-  pinMode(motorPin, OUTPUT); // Define o pin do motor como saída
-  pinMode(ledPin, OUTPUT);   // Define o pin do LED como saída
-  pinMode(buzzerPin, OUTPUT);// Define o pin do buzzer como saída
+  Serial.begin(9600);
+  pinMode(motorPin, OUTPUT);
+  pinMode(ledPin, OUTPUT);
+  pinMode(buzinaPin, OUTPUT);
 }
 
 void loop() {
-  int sensorValue = analogRead(sensorPin); // Lê o valor analógico do sensor de temperatura
+  int sensorValue = analogRead(sensorPin);
 
-  // Converte a leitura analógica para tensão
+  // Aqui convertemos a leitura analógica para tensão
   float voltage = sensorValue * (5.0 / 1023.0);
 
-  // Converte a tensão para temperatura em graus Celsius
+  // Aqui convertemos a tensão para temperatura em graus Celsius
   float temperatureC = (voltage - 0.5) * 100;
 
   Serial.print("Temperature: ");
   Serial.print(temperatureC);
   Serial.println(" °C");
 
-  // Verifica se a temperatura é maior ou igual a 30°C
   if (temperatureC >= 30.0) {
-    digitalWrite(motorPin, HIGH); // Liga o motor do ventilador
+    digitalWrite(motorPin, HIGH); // Liga o motor
   } else {
-    digitalWrite(motorPin, LOW); // Desliga o motor do ventilador
+    digitalWrite(motorPin, LOW); // Desliga o motor
   }
 
-  // Verifica se a temperatura ultrapassa 50°C
   if (temperatureC > 50.0) {
-    digitalWrite(ledPin, HIGH);  // Liga o LED vermelho
-    digitalWrite(buzzerPin, HIGH); // Liga o buzzer
+    digitalWrite(ledPin, HIGH);  // Liga o LED
+    digitalWrite(buzinaPin, HIGH); // Liga a buzina
   } else {
-    digitalWrite(ledPin, LOW);  // Desliga o LED vermelho
-    digitalWrite(buzzerPin, LOW); // Desliga o buzzer
+    digitalWrite(ledPin, LOW);  // Desliga o LED
+    digitalWrite(buzinaPin, LOW); // Desliga a buzina
   }
 
-  delay(1000); // Aguarda 1 segundo antes de fazer a próxima leitura
+  delay(1000); // Aguarda 1 segundo
 }
 
 
 
-Funcionamento do Código
-Setup:
+# Funcionamento do Código
+## Setup:
 
 Inicializa a comunicação serial.
 Define os pinos do motor, LED e buzzer como saídas.
-Loop:
 
-Lê o valor analógico do sensor TMP36.
+## Loop:
+
+Lê o valor analógico do sensor de temperatura.
 Converte o valor lido em tensão.
 Converte a tensão em temperatura em graus Celsius.
 Imprime a temperatura no monitor serial.
