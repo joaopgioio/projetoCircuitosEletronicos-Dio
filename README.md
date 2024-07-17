@@ -43,6 +43,11 @@ Este projeto simula uma estufa de hortaliças controlada por um Arduino. O siste
 - **Negativo** -> GND (Arduino)
 
 
+### Imagem do projeto "físico"
+![image](https://github.com/user-attachments/assets/9c488c61-8962-4c51-9a84-c596631c4bd2)
+
+
+
 ## Código Fonte
 
 ```cpp
