@@ -42,6 +42,7 @@ Este projeto simula uma estufa de hortaliças controlada por um Arduino. O siste
 - **Positivo** -> D8 (Arduino)
 - **Negativo** -> GND (Arduino)
 
+
 ## Código Fonte
 
 ```cpp
@@ -87,6 +88,7 @@ void loop() {
   delay(1000); // Aguarda 1 segundo
 }
 
+```
 
 
 # Funcionamento do Código
@@ -106,7 +108,5 @@ Liga o LED vermelho e o buzzer se a temperatura ultrapassar 50°C.
 Aguarda 1 segundo antes de repetir o processo.
 Considerações Finais
 Este projeto é uma simulação simples de um sistema de controle de temperatura para uma estufa de hortaliças. Ele pode ser expandido para incluir mais sensores, controle de umidade, iluminação automática, entre outros recursos. O uso do TinkerCad facilita a simulação e a visualização do circuito antes da montagem física.
-
-
 
 Este documento detalha o projeto, componentes, conexões, e explica o código usado para controlar o sistema de temperatura com Arduino.
